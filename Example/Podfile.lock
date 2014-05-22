@@ -1,38 +1,14 @@
 PODS:
-  - AFNetworking (2.2.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.2.4):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.2.4):
-    - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.2.4)
-  - AFNetworking/Security (2.2.4)
-  - AFNetworking/Serialization (2.2.4)
-  - AFNetworking/UIKit (2.2.4):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
   - BuildEnvironment (0.1.0)
-  - Objection (1.4)
 
 DEPENDENCIES:
-  - AFNetworking
   - BuildEnvironment (from `../`)
-  - Objection
 
 EXTERNAL SOURCES:
   BuildEnvironment:
     :path: ../
 
 SPEC CHECKSUMS:
-  AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
   BuildEnvironment: ea146d90489dfa9471e94b6ec50a2681678ae999
-  Objection: 8176a996209cdcd23490c57d6e807a25faa8d54d
 
 COCOAPODS: 0.33.1

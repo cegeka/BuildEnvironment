@@ -17,8 +17,7 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://twitter.com/jansabbe'
   s.requires_arc = true
 
-  s.source_files = 'Classes', 'Scripts'
-  s.resources = 'Assets/*.sh'
+  s.source_files = 'Classes'
 
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'

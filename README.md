@@ -46,9 +46,9 @@ or Apache license, it will fail the build.
 ![Check licenses screenshot](/Screenshots/check_licenses_example.png?raw=true)
 
 * Go to your target, Build phases. Add a new Run Script Build phase
-* Enter the following: `${PODS_ROOT}/BuildEnvironment/check_licenses.sh`
-* You can also specifiy the licenses you want to allow by adding a parameter: `${PODS_ROOT}/BuildEnvironment/check_licenses.sh -l BSD` By default MIT, BSD and Apache are allowed.
-* You can also make exceptions for certain projects that you want to allow anyway: `${PODS_ROOT}/BuildEnvironment/check_licenses.sh -e AFNetworking`
+* Enter the following: `"${PODS_ROOT}"/BuildEnvironment/check_licenses.sh`
+* You can also specifiy the licenses you want to allow by adding a parameter: `"${PODS_ROOT}"/BuildEnvironment/check_licenses.sh -l BSD` By default MIT, BSD and Apache are allowed.
+* You can also make exceptions for certain projects that you want to allow anyway: `"${PODS_ROOT}"/BuildEnvironment/check_licenses.sh -e AFNetworking`
 
 ## Author
 

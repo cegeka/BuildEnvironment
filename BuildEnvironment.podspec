@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
 
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
+  s.preserve_paths = '*.sh'
 end

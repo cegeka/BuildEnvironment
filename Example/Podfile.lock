@@ -1,0 +1,14 @@
+PODS:
+  - BuildEnvironment (0.1.0)
+
+DEPENDENCIES:
+  - BuildEnvironment (from `../`)
+
+EXTERNAL SOURCES:
+  BuildEnvironment:
+    :path: ../
+
+SPEC CHECKSUMS:
+  BuildEnvironment: 331651298aab84fd60fbb8795dfcb30f070a8d44
+
+COCOAPODS: 0.33.1

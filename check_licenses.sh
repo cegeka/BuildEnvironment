@@ -11,10 +11,10 @@ $configuration = {
 }
 
 OptionParser.new do |o|
-    o.on('-a MIT,BSD,Apache', Array, "Allowed licenses (default MIT,BSD,Apache)") do |list|
+    o.on('-l', '--licenses MIT,BSD,Apache', Array, "Allowed licenses (default MIT,BSD,Apache)") do |list|
         $configuration[:allowed_licenses] = list
     end
-    o.on('-e x,y,z', Array, "Names of projects you want to make an exception for") do |list|
+    o.on('-e', '--exceptions Project', Array, "Names of projects you want to make an exception for") do |list|
         $configuration[:dep_exceptions] = list
     end
     o.parse!

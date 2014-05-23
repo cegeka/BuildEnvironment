@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-exec > /tmp/log_version_update.log 2>&1
+#exec > /tmp/log_version_update.log 2>&1
 
 NEW_VERSION=`date "+%Y%m%d%H%M%S"`
 echo "Updating BundleVersion to ${NEW_VERSION}";

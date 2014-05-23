@@ -22,4 +22,7 @@ Pod::Spec.new do |s|
   s.ios.exclude_files = 'Classes/osx'
   s.osx.exclude_files = 'Classes/ios'
   s.preserve_paths = '*.sh'
+  s.xcconfig = {
+    'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) HOCKEYAPP_APP_ID="@\"$(HOCKEYAPP_APP_ID)\"'
+  }
 end

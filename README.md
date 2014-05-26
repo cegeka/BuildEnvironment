@@ -26,7 +26,7 @@ You can set this up as follows:
 
 ![Example configuration](/Screenshots/beconfiguration.png?raw=true)
 
-You can also add an extra configuration (eg Acceptance), by going to your Project settings and adding a configuration in the
+You can also add an extra configuration (eg Acceptance), by going to your Project settings and adding a configuration in the 
 Configurations section. You might need to rerun `pod install` after this.
 
 ![New configuration](/Screenshots/new_configurations.png?raw=true)
@@ -69,10 +69,19 @@ or Apache license, it will fail the build.
 3 You can also specifiy the licenses you want to allow by adding a parameter: `"${PODS_ROOT}"/BuildEnvironment/check_licenses.sh -l BSD` By default MIT, BSD and Apache are allowed.
 4 You can also make exceptions for certain projects that you want to allow anyway: `"${PODS_ROOT}"/BuildEnvironment/check_licenses.sh -e AFNetworking`
 
+## Check outdated dependencies
+
+You can also check if all your cocoapod dependencies are outdated. Integrating `check_outdated.sh` in your build will generate a build warning if a dependency has a newer version.
+
+1 Go to your target, Build phases. Add a new Run Script Build phase
+2 Enter the following: `"${PODS_ROOT}"/BuildEnvironment/check_outdated.sh`
+
+![Check outdated screenshot](/Screenshots/check_outdated_warnings.png?raw=true)
+
 ## Author
 
 Developed in the [Cegeka European App Factory](http://europeanappfactory.com/) 
-* by Jan Sabbe
+* Jan Sabbe
 
 ## License
 

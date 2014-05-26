@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  BuildEnvironment: ea146d90489dfa9471e94b6ec50a2681678ae999
+  BuildEnvironment: 79813bbdad2ebf1e9c77aeb4890623a7467211da
 
 COCOAPODS: 0.33.1

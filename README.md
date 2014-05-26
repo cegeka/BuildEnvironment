@@ -19,6 +19,7 @@ it simply add the following line to your Podfile:
 In your application you might need different values depending on the build of your application. Imagine you are creating a test, an acceptance and a production build of your app. You might want to talk to different backends for each build.
 
 You can set this up as follows:
+
 1. Go to your Info.plist and add the property `BEConfiguration` with value `${CONFIGURATION}`
 2. Create a `BEConfiguration.plist`. Add a `Debug` and a `Release` property with type Dictionary
 3. Add your environment specific properties to this Debug/Release dictionary. Environment independent properties can be added to the root
@@ -40,6 +41,7 @@ You could also duplicate a Scheme, set it up as an Acceptance build, and make su
 ## Automatically increment bundle version
 
 You can use update_version.sh to automatically increment the CFBundleVersion in your Info.plist. This script will put a timestamp in the version.
+
 1. Edit your build scheme and add a Pre-Action to the Build step. You can add a Run script action here.
 2. Make sure 'Provile build settings from' dropdown is filled in with your default target
 3. Enter the following `"${PODS_ROOT}/BuildEnvironment/update_version.sh"`
@@ -47,6 +49,7 @@ You can use update_version.sh to automatically increment the CFBundleVersion in 
 ## Upload to HockeyApp
 
 You can use upload_to_hockeyapp.sh to setup your Xcode build server to automatically sign and upload apps to HockeyApp.
+
 1. Edit your build schemes and duplicate your default one.
 2. Mark it as shared, and add a post-action to the Archive step. Add a "New Run Script Action". Make sure 'Provide build settings from' dropdown is filled in.
 3. Enter `"${PODS_ROOT}"/BuildEnvironment/upload_to_hockeyapp.sh`. If you want to see the log of this script, add `exec > /tmp/log_hockeyapp.txt 2>&1` at the top. This will log it on your build server in `/tmp/log_hockeyapp.txt`

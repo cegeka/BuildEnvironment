@@ -10,10 +10,10 @@ Pod::Spec.new do |s|
                        * Check software licenses of the used CocoaPod dependencies
                        * Automatically increment build number
                        DESC
-  s.homepage         = "http://EXAMPLE/NAME"
+  s.homepage         = "https://github.com/cegeka/BuildEnvironment"
   s.license          = 'MIT'
   s.author           = { "Jan Sabbe" => "jan.sabbe@cegeka.be" }
-  s.source           = { :git => "http://EXAMPLE/NAME.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/cegeka/BuildEnvironment.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/jansabbe'
   s.requires_arc = true
 

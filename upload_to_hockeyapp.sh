@@ -1,31 +1,22 @@
 #!/usr/bin/env bash
 #exec > /tmp/log_hockeyapp_upload.log 2>&1
 
-DSYM="/tmp/Archive.xcarchive/dSYMs/${PRODUCT_NAME}.app.dSYM"
 IPA="/tmp/${PRODUCT_NAME}.ipa"
-APP="/tmp/Archive.xcarchive/Products/Applications/${PRODUCT_NAME}.app"
-
-# Clear out any old copies of the Archive
-echo "Removing old Archive files from /tmp...";
-/bin/rm -rf /tmp/Archive.xcarchive*
-
-#Copy over the latest build the bot just created
-echo "Copying latest Archive to /tmp/...";
-LATESTBUILD=$(ls -1rt /Library/Server/Xcode/Data/BotRuns | tail -1)
-
-/bin/cp -Rp "/Library/Server/Xcode/Data/BotRuns/${LATESTBUILD}/output/Archive.xcarchive" "/tmp/"
+APP="${ARCHIVE_PRODUCTS_PATH}/Applications/${PRODUCT_NAME}.app"
+EMBED_PROVISIONING_PROFILE=$(grep -rl ${PROVISIONING_PROFILE} /Library/Server/Xcode/Data/ProvisioningProfiles ~"/Library/MobileDevice/Provisioning Profiles" 2>/dev/null | tail -1)
+echo "Using provisioning profile: ${EMBED_PROVISIONING_PROFILE}"
 
 echo "Creating .ipa for ${PRODUCT_NAME}"
 /bin/rm "${IPA}"
-EMBED_PROVISIONING_PROFILE=$(grep -rl ${PROVISIONING_PROFILE} /Library/Server/Xcode/Data/ProvisioningProfiles/ | tail -1)
-echo "Using provisioning profile: ${EMBED_PROVISIONING_PROFILE}"
 /usr/bin/xcrun -sdk iphoneos PackageApplication -v "${APP}" -o "${IPA}" --sign "${CODE_SIGN_IDENTITY}" --embed "${EMBED_PROVISIONING_PROFILE}"
 
 echo "Done with IPA creation."
 
 echo "Zipping .dSYM for ${PRODUCT_NAME}"
-/bin/rm "${DSYM}.zip"
-/usr/bin/zip -r "${DSYM}.zip" "${DSYM}"
+/bin/rm "/tmp/${DWARF_DSYM_FILE_NAME}.zip"
+pushd "${ARCHIVE_DSYMS_PATH}"
+/usr/bin/zip -r "/tmp/${DWARF_DSYM_FILE_NAME}.zip" "${DWARF_DSYM_FILE_NAME}"
+popd
 
 echo "Created .dSYM for ${PRODUCT_NAME}"
 
@@ -35,7 +26,7 @@ echo "*** Uploading ${PRODUCT_NAME} to HockeyApp ***"
 -F status="${HOCKEYAPP_STATUS:-2}" \
 -F mandatory="${HOCKEYAPP_MANDATORY:-1}" \
 -F ipa=@"${IPA}" \
--F dsym=@"${DSYM}.zip" \
+-F dsym=@"/tmp/${DWARF_DSYM_FILE_NAME}.zip" \
 -F notes="Upload by Xcode Bot" \
 -H "X-HockeyAppToken: ${HOCKEYAPP_API_TOKEN}"
 

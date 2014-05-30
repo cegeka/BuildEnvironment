@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BuildEnvironment"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "Bundles a couple of useful build scripts, and a way of keeping environment dependent properties"
   s.description      = <<-DESC
                        BuildEnvironment bundles a couple of useful build scripts
@@ -18,11 +18,8 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = 'Classes'
-
-  s.ios.exclude_files = 'Classes/osx'
-  s.osx.exclude_files = 'Classes/ios'
   s.preserve_paths = '*.sh'
   s.xcconfig = {
-    'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) HOCKEYAPP_APP_ID="@\"$(HOCKEYAPP_APP_ID)\""'
+    'GCC_PREPROCESSOR_DEFINITIONS' => '$(inherited) HOCKEYAPP_APP_ID="@\"$(HOCKEYAPP_APP_ID)\"" BUILD_ENVIRONMENT="@\"$(CONFIGURATION)\""'
   }
 end

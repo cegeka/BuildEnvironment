@@ -14,8 +14,6 @@
 	</dict>
 	<key>Debug</key>
 	<dict>
-		<key>support_email</key>
-		<string>my.address@cegeka.be</string>
 		<key>backend_url</key>
 		<string>http://localhost:8080/rest</string>
 	</dict>

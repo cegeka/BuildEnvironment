@@ -52,10 +52,9 @@ In your application you might need different values depending on the build of yo
 
 You can set this up as follows:
 
-1. Go to your Info.plist and add the property `BEConfiguration` with value `${CONFIGURATION}`
-2. Create a `BEConfiguration.plist`. Add a `Debug` and a `Release` property with type Dictionary
-3. Add your environment specific properties to this Debug/Release dictionary. Environment independent properties can be added to the root
-4. In your code you can access this using: `BEConfig.configuration[@"key_in_configuration_plist"]`
+1. Create a `BEConfiguration.plist`. Add a `Debug` and a `Release` property with type Dictionary
+2. Add your environment specific properties to this Debug/Release dictionary. Environment independent properties can be added to the root
+3. In your code you can access this using: `BEConfig.configuration[@"key_in_configuration_plist"]`
 
 ![Example configuration](/Screenshots/beconfiguration.png?raw=true)
 

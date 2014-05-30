@@ -14,13 +14,14 @@
 	    config = [[BEConfig alloc] init];
 	    NSURL *configurationUrl = [[NSBundle mainBundle] URLForResource:@"BEConfiguration" withExtension:@"plist"];
 	    NSDictionary *dictionary = [[NSDictionary alloc] initWithContentsOfURL:configurationUrl];
-	    NSString *configuration = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"BEConfiguration"];
-
 	    NSAssert(dictionary, @"BEConfiguration.plist not found. Create a BEConfiguration.plist file with your configuration data. Ensure it is added to your main target");
-	    NSAssert(configuration, @"BEConfiguration property not found in Info.plist. Add a BEConfiguration property to your Info.plist with value ${CONFIGURATION}");
 
 	    config.dictionary = dictionary;
-	    config.currentConfiguration = configuration;
+        #ifdef BUILD_ENVIRONMENT
+	    config.currentConfiguration = BUILD_ENVIRONMENT;
+	    #else
+        #error BUILD_ENVIRONMNET not set
+	    #endif
 	});
 	return config;
 }

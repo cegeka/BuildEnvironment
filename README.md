@@ -44,7 +44,7 @@ If you already have a project, you can still use the build scripts.
 BuildEnvironment is available through [CocoaPods](http://cocoapods.org), to install
 it simply add the following line to your Podfile:
 
-    pod "BuildEnvironment", '~> 0.1.0'
+    pod "BuildEnvironment", '~> 0.1.1'
 
 ### Different build environments
 

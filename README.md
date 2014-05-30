@@ -20,7 +20,7 @@ To quickly start a new Xcode project where BuildEnvironment has been integrated,
 `curl -L https://github.com/cegeka/BuildEnvironment/raw/master/Template/install_template.sh |sh`
 
 In Xcode you will have a new Project template "Basic Application" in the "Cegeka" group. When you go through the wizard,
-it will ask you for the [Hockey App ID](http://support.hockeyapp.net/kb/about-general-faq/how-to-find-the-app-id) and a [Hockey API Token](https://rink.hockeyapp.net/manage/auth_tokens). 
+it will ask you for the [Hockey App ID](http://support.hockeyapp.net/kb/about-general-faq/how-to-find-the-app-id) and a [Hockey API Token](https://rink.hockeyapp.net/manage/auth_tokens). You can also modify them when you go to your Target under Build Settings in the User-Defined settings.
 
 The project comes with a Podfile, but you still need to run `pod install`
 
@@ -36,7 +36,6 @@ The template will setup everything except automatic deployment to HockeyApp. To 
 4. Add a Run-script action to the Post-actions of the Archive step. Put in `"${PODS_ROOT}"/BuildEnvironment/upload_to_hockeyapp.sh` and select your target in the Provide build settings dropdown.
 5. Make sure your Code Signing and Provisioning Profile settings are correct in the target build settings. Also make sure the same provisioning profile and signing certificate are available on your Xcode server. 
 6. When you run an Archive locally, it will automatically upload the build to HockeyApp. You can also run this scheme on Xcode Server to automatically distribute builds to your testers.
-
 
 ## Manual installation
 

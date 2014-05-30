@@ -20,8 +20,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	self.environmentIndependent.text = BEConfig.configuration[@"independent"];
-	self.environmentDependent.text = BEConfig.configuration[@"dependent"];
+	self.environmentIndependent.text = BEConfig.configuration[@"backend_url"];
+	self.environmentDependent.text = BEConfig.configuration[@"support_email"];
 }
 
 @end

@@ -137,7 +137,7 @@ To automatically update the file contaning the translations required for the sou
 * Collected keys that are found in the storyboard strings files remain as they are.
 * Keys found in the storyboard strings files but not in the keys collected by the script, are removed from the files.
 
-In order for this script to work the project needs to a localized storyboard.
+In order for this script to work the project needs a localized storyboard.
 
 #### Deactivate localization support.
 To deactivate any of the above localization script, you can remove the corresponding *Update source translations* and *Update storyboard translations* build phases from your project (automatically added by the template).

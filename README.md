@@ -37,6 +37,12 @@ The template will setup everything except automatic deployment to HockeyApp. To 
 5. Make sure your Code Signing and Provisioning Profile settings are correct in the target build settings. Also make sure the same provisioning profile and signing certificate are available on your Xcode server. 
 6. When you run an Archive locally, it will automatically upload the build to HockeyApp. You can also run this scheme on Xcode Server to automatically distribute builds to your testers.
 
+> **Important**
+>
+> The project won't build until you manually create the project structure required by the localization scripts.
+> To get more details about the required structure, or to remove the localization support, go to the Localization section.
+>
+
 ## Manual installation
 
 If you already have a project, you can still use the build scripts. 
@@ -111,6 +117,31 @@ You can also check if all your cocoapod dependencies are outdated. Integrating `
 2. Enter the following: `"${PODS_ROOT}"/BuildEnvironment/check_outdated.sh`
 
 ![Check outdated screenshot](/Screenshots/check_outdated_warnings.png?raw=true)
+
+### Localization
+This template automatically updates the files that need to be localized. This includes the files containing the translations required for the text found both in the source code and storyboards.
+
+#### Update source code translations
+To automatically update the file contaning the translations required for the source code, you can use `extract_source_translations.sh`. This script looks for invocations to NSLocalizedString in the code, collects the keys used in such invocations, and tries to match them with those specified in the Localizable.strings files as follows:
+
+* Collected keys that are not found in the Localizable.strings files are added.
+* Collected keys that are found in the Localizable.strings files remain as they are.
+* Keys found in the Localizable.strings files but not in the keys collected by the script, are removed from the files.
+
+In order for this script to work the project needs to have a localized file, called Localization.strings in a Supporting Files directory. 
+
+#### Update storyboard translations
+To automatically update the file contaning the translations required for the source code, you can use `extract_storyboard.sh`. This script looks for strings in the storyboard, collects the keys used by such strings, and tries to match them with those specified in the storyboard strings files as follows:
+
+* Collected keys that are not found in the storyboard strings files are added.
+* Collected keys that are found in the storyboard strings files remain as they are.
+* Keys found in the storyboard strings files but not in the keys collected by the script, are removed from the files.
+
+In order for this script to work the project needs to a localized storyboard.
+
+#### Deactivate localization support.
+To deactivate any of the above localization script, you can remove the corresponding *Update source translations* and *Update storyboard translations* build phases from your project (automatically added by the template).
+
 
 ## Author
 

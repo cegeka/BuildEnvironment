@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BuildEnvironment"
-  s.version          = "0.1.5"
+  s.version          = "0.1.6"
   s.summary          = "Bundles a couple of useful build scripts, and a way of keeping environment dependent properties"
   s.description      = <<-DESC
                        BuildEnvironment bundles a couple of useful build scripts

@@ -40,7 +40,7 @@ The template will setup everything except automatic deployment to HockeyApp. To 
 > **Important**
 >
 > The project won't build until you manually create the project structure required by the localization scripts.
-> To get more details about the required structure, or to remove the localization support, go to the Localization section.
+> To get more details about the required structure, or to remove the localization support, go to the [Localization section](https://github.com/cegeka/BuildEnvironment#localization).
 >
 
 ## Manual installation

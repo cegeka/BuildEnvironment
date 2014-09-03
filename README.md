@@ -98,13 +98,13 @@ You can use upload_to_hockeyapp.sh to automatically upload builds to HockeyApp (
 
 ### Adding automatic builds on a build machine
 
-In Belgium we have an iMac available for automatic builds with OSX Server and XCode. These are the steps necessary to set up a build.
+If you have a build server available, these are the steps to take in order to set up automatic builds.
 
 1. Go to Product > Create Bot...
 2. Select a Scheme, check "Share Scheme" if necessary.
 3. Give your bot a name. As a convention we use [APPNAME]-Build and [APPNAME]-Deploy.
 4. Choose Schedule on Commit for regular builds and Schedule Manual for Deploy builds.
-5. Cleaning Once a day for regular builds and Always for Deploy builds.
+5. Select Clean Once a day for regular builds and Always for Deploy builds.
 6. With the next steps you can choose whether to test on all devices or specific or all simulators and you can specify notifications on failure. Typically we use all simulators and no notifications.
 7. After you create the bot the Build will show up in the Bots on localhost:xcode and on the big screen.
 

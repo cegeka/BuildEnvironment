@@ -13,7 +13,7 @@ def get_source_files(rootPath):
     print "Extracting translations from {0}".format(rootPath)
     source_files = []
     for root, dirs, files in os.walk(rootPath):
-        source_files += [os.path.join(root, f) for f in files if f.endswith('.m')]
+        source_files += [os.path.join(root, f) for f in files if f.endswith('.m') or f.endswith('.swift')]
     return set(source_files)
 
 def translate(rootPath, files):

@@ -91,7 +91,7 @@ You can use upload_to_hockeyapp.sh to automatically upload builds to HockeyApp (
 2. Mark it as shared, and add a post-action to the Archive step. Add a "New Run Script Action". Make sure 'Provide build settings from' dropdown is filled in.
 3. Enter `"${PODS_ROOT}"/BuildEnvironment/upload_to_hockeyapp.sh`. If you want to see the log of this script, add `exec > /tmp/log_hockeyapp.txt 2>&1` at the top. This will log it on your build server in `/tmp/log_hockeyapp.txt`
 4. Next go to your Target configuration then Build settings. Add a user-defined setting `HOCKEYAPP_API_TOKEN` which should contain your Api token. Also add a `HOCKEYAPP_APP_ID` user-defined setting which contains your App ID.
-5. Make sure your Code Signing and Provisioning Profile settings are correct. Also make sure the same provisioning profile and signing certificate are available on the XCode server. 
+5. Make sure your Code Signing and Provisioning Profile settings are correct. Also make sure the same provisioning profile and signing certificate are available on the Xcode server. 
 
 ![Add post action](/Screenshots/post_action_upload.png?raw=true)
 ![Add user defined setting](/Screenshots/user_defined_action.png?raw=true)
